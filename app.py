@@ -71,3 +71,24 @@ def end_of_round(players, phase_board, score_board):
     phase_board = log_phase(players, phase_board)
     score_board = log_scores(players, score_board)
     return phase_board, score_board
+
+'''
+# Welcome to the Phase 10 score keeper
+Let's set up the game.
+'''
+
+with st.form(key='submit_input'):
+    players_nr = st.text_input('How many players are playing?')
+    st.form_submit_button('Enter')
+
+players = []
+
+for x in range(0, int(players_nr)):
+    player = st.text_input(f'Name of player {x+1}:')
+    players.append(player)
+
+score_board, phase_board, players = setup_game()
+
+if st.button('Start playing'):
+    phase_board = log_phase(players, phase_board)
+    phase_board
